@@ -1,0 +1,35 @@
+track: ai_systems
+display_name: AI Systems
+enabled_by_default: true
+description: Training systems, inference systems, serving infrastructure, and end-to-end ML systems engineering.
+include_keywords:
+  - ai infrastructure
+  - ml systems
+  - training system
+  - inference serving
+  - llm serving
+  - distributed training
+  - accelerator runtime
+exclude_keywords:
+  - survey
+  - tutorial
+  - benchmark-only
+arxiv_categories:
+  - cs.LG
+  - cs.AI
+  - cs.DC
+  - cs.AR
+preferred_venues:
+  - mlsys
+  - sysml
+  - osdi
+  - usenix-atc
+  - eurosys
+  - asplos
+  - nsdi
+overflow_venues:
+  enabled: false
+  entries:
+    - neurips
+    - icml
+    - iclr

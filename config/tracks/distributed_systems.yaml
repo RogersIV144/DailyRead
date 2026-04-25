@@ -1,0 +1,25 @@
+track: distributed_systems
+display_name: Distributed Systems
+enabled_by_default: true
+description: Distributed systems, cloud infrastructure, service runtimes, and large-scale system management.
+include_keywords:
+  - distributed system
+  - datacenter
+  - cloud
+  - cluster
+  - reliability
+  - service mesh
+  - deployment
+exclude_keywords:
+  - survey
+  - tutorial
+arxiv_categories:
+  - cs.DC
+  - cs.SE
+preferred_venues:
+  - nsdi
+  - socc
+  - middleware
+  - fast
+  - eurosys
+  - osdi

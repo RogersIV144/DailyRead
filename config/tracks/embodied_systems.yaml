@@ -1,0 +1,17 @@
+track: embodied_systems
+display_name: Embodied Systems
+enabled_by_default: false
+description: Embodied AI and robotics-adjacent systems. Preserved for future expansion.
+include_keywords:
+  - embodied ai
+  - robot system
+  - robot learning system
+  - perception-control system
+exclude_keywords:
+  - survey
+  - tutorial
+arxiv_categories:
+  - cs.RO
+  - cs.AI
+  - cs.CV
+preferred_venues: []

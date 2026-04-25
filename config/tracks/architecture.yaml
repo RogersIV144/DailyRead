@@ -1,0 +1,24 @@
+track: architecture
+display_name: Architecture
+enabled_by_default: true
+description: Computer architecture, accelerators, memory hierarchy, and low-level performance design.
+include_keywords:
+  - accelerator
+  - microarchitecture
+  - memory hierarchy
+  - cache
+  - compiler-hardware co-design
+  - datacenter accelerator
+exclude_keywords:
+  - survey
+  - tutorial
+arxiv_categories:
+  - cs.AR
+preferred_venues:
+  - isca
+  - micro
+  - hpca
+  - asplos
+  - dac
+  - date
+  - iccd

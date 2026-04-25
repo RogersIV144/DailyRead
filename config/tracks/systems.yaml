@@ -1,0 +1,24 @@
+track: systems
+display_name: Systems
+enabled_by_default: true
+description: Operating systems, system software, resource management, storage, and system infrastructure.
+include_keywords:
+  - operating system
+  - kernel
+  - scheduling
+  - storage
+  - runtime
+  - resource management
+  - system infrastructure
+exclude_keywords:
+  - survey
+  - tutorial
+arxiv_categories:
+  - cs.OS
+  - cs.DC
+preferred_venues:
+  - sosp
+  - osdi
+  - eurosys
+  - usenix-atc
+  - hotos

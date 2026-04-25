@@ -1,0 +1,649 @@
+general:
+  language: zh_cn
+  note_language_policy: zh_analysis_en_terms
+  timezone: Asia/Shanghai
+
+storage:
+  papers_root: ./papers
+  ideas_root: ./ideas
+  reports_root: ./reports
+  inbox_root: ./inbox
+  templates_root: ./templates
+  index_root: ./index
+  config_root: ./config
+  attachments_root: ./attachments
+
+taxonomy:
+  fixed_topics:
+    - architecture
+    - systems
+    - distributed_systems
+    - network
+    - security
+    - ai_systems
+    - embodied_systems
+  tag_guidelines:
+    - Keep tags short, specific, and reusable across notes.
+    - Prefer method, system, benchmark, and problem tags over vague topic labels.
+    - Reuse existing tags before introducing a new one.
+    - Use `venue:*` style tags only when venue-level grouping is useful.
+    - Keep one primary topic in `topics` and use `tags` for secondary signals.
+    - Avoid duplicating the same concept in both `topics` and `tags` unless needed for search.
+
+search:
+  default_sort: balanced
+  default_year_window: recent_90d
+  default_max_results: 10
+  search_scopes:
+    - papers
+    - ideas
+  fuzzy_title_match: true
+  semantic_search_enabled: false
+  deduplicate_by_paper_key: true
+
+scoring:
+  daily_discovery:
+    relevance: 0.35
+    recency: 0.25
+    impact: 0.15
+    quality: 0.25
+  venue_survey:
+    relevance: 0.35
+    rigor: 0.25
+    impact: 0.20
+    venue_fit: 0.20
+  idea_synthesis:
+    gap_strength: 0.30
+    feasibility: 0.25
+    novelty: 0.25
+    leverage: 0.20
+  report_writer:
+    synthesis: 0.40
+    clarity: 0.25
+    actionability: 0.35
+
+tracks:
+  enabled_tracks:
+    - architecture
+    - systems
+    - distributed_systems
+    - network
+    - security
+    - ai_systems
+  definitions:
+    architecture:
+      display_name: Architecture
+      description: Computer architecture, accelerators, memory hierarchy, and performance analysis.
+    systems:
+      display_name: Systems
+      description: Operating systems, storage, resource management, and system software.
+    distributed_systems:
+      display_name: Distributed Systems
+      description: Distributed systems, cloud infrastructure, datacenter systems, and service design.
+    network:
+      display_name: Networking
+      description: Network systems, traffic measurement, transport, and networked infrastructure.
+    security:
+      display_name: Security
+      description: Systems security, network security, platform security, and secure system design.
+    ai_systems:
+      display_name: AI Systems
+      description: AI infrastructure, training systems, inference serving, and ML systems engineering.
+    embodied_systems:
+      display_name: Embodied Systems
+      description: Embodied AI and robotics-adjacent systems. Preserved in config but disabled by default.
+
+tasks:
+  daily_discovery:
+    enabled: true
+    default_track: systems
+    default_output_mode: survey_report
+    default_template: survey_report
+    default_year_window: recent_90d
+    max_results: 10
+    include_keywords: []
+    exclude_keywords: []
+  venue_survey:
+    enabled: true
+    default_track: systems
+    default_output_mode: survey_report
+    default_template: survey_report
+    default_year_window: recent_5y
+    max_results: 20
+    include_keywords: []
+    exclude_keywords: []
+  paper_analyze:
+    enabled: true
+    default_track: systems
+    default_output_mode: paper_note
+    default_template: deep_paper_note
+    default_year_window: all_years
+    max_results: 1
+    include_keywords: []
+    exclude_keywords: []
+  idea_synthesis:
+    enabled: true
+    default_track: systems
+    default_output_mode: idea_notes
+    default_template: idea_note
+    default_year_window: recent_365d
+    max_results: 5
+    include_keywords: []
+    exclude_keywords: []
+  report_writer:
+    enabled: true
+    default_track: systems
+    default_output_mode: report
+    default_template: hybrid_report
+    default_year_window: recent_365d
+    max_results: 10
+    include_keywords: []
+    exclude_keywords: []
+  paper_search:
+    enabled: true
+    default_track: systems
+    default_output_mode: list
+    default_template: ''
+    default_year_window: all_years
+    max_results: 10
+    include_keywords: []
+    exclude_keywords: []
+  extract_paper_images:
+    enabled: true
+    default_track: systems
+    default_output_mode: asset_list
+    default_template: ''
+    default_year_window: all_years
+    max_results: 20
+    include_keywords: []
+    exclude_keywords: []
+
+venues:
+  architecture:
+    entries:
+      - key: isca
+        display_name: ISCA
+        aliases:
+          - annual-international-symposium-on-computer-architecture
+        primary_track: architecture
+        related_tracks: []
+        years_pattern: annual
+        default_sources:
+          - dblp
+          - semantic_scholar
+          - doi
+        notes: ''
+      - key: micro
+        display_name: MICRO
+        aliases:
+          - ieee-acm-international-symposium-on-microarchitecture
+        primary_track: architecture
+        related_tracks: []
+        years_pattern: annual
+        default_sources:
+          - dblp
+          - semantic_scholar
+          - doi
+        notes: ''
+      - key: hpca
+        display_name: HPCA
+        aliases:
+          - ieee-international-symposium-on-high-performance-computer-architecture
+        primary_track: architecture
+        related_tracks: []
+        years_pattern: annual
+        default_sources:
+          - dblp
+          - semantic_scholar
+          - doi
+        notes: ''
+      - key: asplos
+        display_name: ASPLOS
+        aliases:
+          - architectural-support-for-programming-languages-and-operating-systems
+        primary_track: architecture
+        related_tracks:
+          - systems
+          - ai_systems
+        years_pattern: annual
+        default_sources:
+          - dblp
+          - semantic_scholar
+          - arxiv
+        notes: ''
+      - key: dac
+        display_name: DAC
+        aliases:
+          - design-automation-conference
+        primary_track: architecture
+        related_tracks: []
+        years_pattern: annual
+        default_sources:
+          - dblp
+          - semantic_scholar
+          - doi
+        notes: "extended-core"
+      - key: date
+        display_name: DATE
+        aliases:
+          - design-automation-and-test-in-europe
+        primary_track: architecture
+        related_tracks: []
+        years_pattern: annual
+        default_sources:
+          - dblp
+          - semantic_scholar
+          - doi
+        notes: "extended-core"
+      - key: iccd
+        display_name: ICCD
+        aliases:
+          - international-conference-on-computer-design
+        primary_track: architecture
+        related_tracks: []
+        years_pattern: annual
+        default_sources:
+          - dblp
+          - semantic_scholar
+          - doi
+        notes: "extended-core"
+  systems:
+    entries:
+      - key: sosp
+        display_name: SOSP
+        aliases:
+          - symposium-on-operating-systems-principles
+        primary_track: systems
+        related_tracks: []
+        years_pattern: biennial_odd
+        default_sources:
+          - dblp
+          - semantic_scholar
+          - doi
+        notes: ''
+      - key: osdi
+        display_name: OSDI
+        aliases:
+          - operating-systems-design-and-implementation
+        primary_track: systems
+        related_tracks:
+          - distributed_systems
+          - ai_systems
+        years_pattern: biennial_odd
+        default_sources:
+          - dblp
+          - semantic_scholar
+          - arxiv
+        notes: "Core systems venue. In cross-track use, focus on OS, infrastructure, and system evaluation rigor."
+      - key: eurosys
+        display_name: EuroSys
+        aliases:
+          - european-conference-on-computer-systems
+        primary_track: systems
+        related_tracks:
+          - distributed_systems
+          - ai_systems
+        years_pattern: annual
+        default_sources:
+          - dblp
+          - semantic_scholar
+          - arxiv
+        notes: "Core systems venue. In cross-track use, focus on end-to-end system design and evaluation quality."
+      - key: usenix-atc
+        display_name: USENIX ATC
+        aliases:
+          - usenix-annual-technical-conference
+          - atc
+        primary_track: systems
+        related_tracks:
+          - ai_systems
+        years_pattern: annual
+        default_sources:
+          - dblp
+          - semantic_scholar
+          - arxiv
+        notes: ''
+      - key: hotos
+        display_name: HotOS
+        aliases:
+          - workshop-on-hot-topics-in-operating-systems
+        primary_track: systems
+        related_tracks: []
+        years_pattern: biennial_odd
+        default_sources:
+          - dblp
+          - semantic_scholar
+        notes: "Vision-heavy venue. Use carefully when filtering for mature evaluation."
+  distributed_systems:
+    entries:
+      - key: nsdi
+        display_name: NSDI
+        aliases:
+          - usenix-symposium-on-networked-systems-design-and-implementation
+        primary_track: distributed_systems
+        related_tracks:
+          - network
+          - ai_systems
+        years_pattern: annual
+        default_sources:
+          - dblp
+          - semantic_scholar
+          - arxiv
+        notes: "Distributed systems core venue. Also cross-listed for networked infrastructure and selected AI systems work."
+      - key: socc
+        display_name: SoCC
+        aliases:
+          - symposium-on-cloud-computing
+        primary_track: distributed_systems
+        related_tracks: []
+        years_pattern: annual
+        default_sources:
+          - dblp
+          - semantic_scholar
+          - arxiv
+        notes: ''
+      - key: middleware
+        display_name: Middleware
+        aliases:
+          - international-middleware-conference
+        primary_track: distributed_systems
+        related_tracks: []
+        years_pattern: annual
+        default_sources:
+          - dblp
+          - semantic_scholar
+          - doi
+        notes: ''
+      - key: fast
+        display_name: FAST
+        aliases:
+          - usenix-conference-on-file-and-storage-technologies
+        primary_track: distributed_systems
+        related_tracks:
+          - systems
+        years_pattern: annual
+        default_sources:
+          - dblp
+          - semantic_scholar
+          - doi
+        notes: "Storage-centric systems venue."
+      - key: eurosys
+        display_name: EuroSys
+        aliases:
+          - european-conference-on-computer-systems
+        primary_track: distributed_systems
+        related_tracks:
+          - systems
+          - ai_systems
+        years_pattern: annual
+        default_sources:
+          - dblp
+          - semantic_scholar
+          - arxiv
+        notes: "Distributed-systems view: prioritize service composition, cloud runtime, and scalable system operation."
+      - key: osdi
+        display_name: OSDI
+        aliases:
+          - operating-systems-design-and-implementation
+        primary_track: distributed_systems
+        related_tracks:
+          - systems
+          - ai_systems
+        years_pattern: biennial_odd
+        default_sources:
+          - dblp
+          - semantic_scholar
+          - arxiv
+        notes: "Distributed-systems view: prioritize infrastructure, reliability, cluster management, and systems deployment at scale."
+  network:
+    entries:
+      - key: sigcomm
+        display_name: SIGCOMM
+        aliases:
+          - acm-sigcomm
+        primary_track: network
+        related_tracks: []
+        years_pattern: annual
+        default_sources:
+          - dblp
+          - semantic_scholar
+          - doi
+        notes: ''
+      - key: nsdi
+        display_name: NSDI
+        aliases:
+          - usenix-symposium-on-networked-systems-design-and-implementation
+        primary_track: network
+        related_tracks:
+          - distributed_systems
+          - ai_systems
+        years_pattern: annual
+        default_sources:
+          - dblp
+          - semantic_scholar
+          - arxiv
+        notes: "Networking view: prioritize networked infrastructure, service transport, and deployment-focused systems networking."
+      - key: imc
+        display_name: IMC
+        aliases:
+          - internet-measurement-conference
+        primary_track: network
+        related_tracks: []
+        years_pattern: annual
+        default_sources:
+          - dblp
+          - semantic_scholar
+          - doi
+        notes: ''
+      - key: conext
+        display_name: CoNEXT
+        aliases:
+          - emerging-networking-experiments-and-technologies
+        primary_track: network
+        related_tracks: []
+        years_pattern: annual
+        default_sources:
+          - dblp
+          - semantic_scholar
+          - doi
+        notes: ''
+      - key: infocom
+        display_name: INFOCOM
+        aliases:
+          - ieee-infocom
+        primary_track: network
+        related_tracks: []
+        years_pattern: annual
+        default_sources:
+          - dblp
+          - semantic_scholar
+          - doi
+        notes: ''
+  security:
+    entries:
+      - key: usenix-security
+        display_name: USENIX Security
+        aliases:
+          - usenix-security-symposium
+        primary_track: security
+        related_tracks: []
+        years_pattern: annual
+        default_sources:
+          - dblp
+          - semantic_scholar
+          - doi
+        notes: ''
+      - key: ndss
+        display_name: NDSS
+        aliases:
+          - network-and-distributed-system-security-symposium
+        primary_track: security
+        related_tracks:
+          - network
+        years_pattern: annual
+        default_sources:
+          - dblp
+          - semantic_scholar
+          - doi
+        notes: ''
+      - key: ieee-sp
+        display_name: IEEE S&P
+        aliases:
+          - ieee-symposium-on-security-and-privacy
+          - oakland
+        primary_track: security
+        related_tracks: []
+        years_pattern: annual
+        default_sources:
+          - dblp
+          - semantic_scholar
+          - doi
+        notes: ''
+      - key: ccs
+        display_name: CCS
+        aliases:
+          - acm-conference-on-computer-and-communications-security
+        primary_track: security
+        related_tracks:
+          - network
+        years_pattern: annual
+        default_sources:
+          - dblp
+          - semantic_scholar
+          - doi
+        notes: ''
+  ai_systems:
+    entries:
+      - key: mlsys
+        display_name: MLSys
+        aliases:
+          - conference-on-machine-learning-and-systems
+        primary_track: ai_systems
+        related_tracks: []
+        years_pattern: annual
+        default_sources:
+          - semantic_scholar
+          - openreview
+          - arxiv
+        notes: "AI infra / training / inference / serving relevant papers only."
+      - key: sysml
+        display_name: SysML
+        aliases:
+          - systems-for-machine-learning
+        primary_track: ai_systems
+        related_tracks: []
+        years_pattern: annual
+        default_sources:
+          - semantic_scholar
+          - openreview
+          - arxiv
+        notes: "AI infra / training / inference / serving relevant papers only."
+      - key: osdi
+        display_name: OSDI
+        aliases:
+          - operating-systems-design-and-implementation
+        primary_track: ai_systems
+        related_tracks:
+          - systems
+          - distributed_systems
+        years_pattern: biennial_odd
+        default_sources:
+          - dblp
+          - semantic_scholar
+          - arxiv
+        notes: "AI infra / training / inference / serving relevant papers only."
+      - key: usenix-atc
+        display_name: USENIX ATC
+        aliases:
+          - usenix-annual-technical-conference
+          - atc
+        primary_track: ai_systems
+        related_tracks:
+          - systems
+        years_pattern: annual
+        default_sources:
+          - dblp
+          - semantic_scholar
+          - arxiv
+        notes: "AI infra / training / inference / serving relevant papers only."
+      - key: eurosys
+        display_name: EuroSys
+        aliases:
+          - european-conference-on-computer-systems
+        primary_track: ai_systems
+        related_tracks:
+          - systems
+          - distributed_systems
+        years_pattern: annual
+        default_sources:
+          - dblp
+          - semantic_scholar
+          - arxiv
+        notes: "AI infra / training / inference / serving relevant papers only."
+      - key: asplos
+        display_name: ASPLOS
+        aliases:
+          - architectural-support-for-programming-languages-and-operating-systems
+        primary_track: ai_systems
+        related_tracks:
+          - architecture
+          - systems
+        years_pattern: annual
+        default_sources:
+          - dblp
+          - semantic_scholar
+          - arxiv
+        notes: "AI infra / training / inference / serving relevant papers only."
+      - key: nsdi
+        display_name: NSDI
+        aliases:
+          - usenix-symposium-on-networked-systems-design-and-implementation
+        primary_track: ai_systems
+        related_tracks:
+          - distributed_systems
+          - network
+        years_pattern: annual
+        default_sources:
+          - dblp
+          - semantic_scholar
+          - arxiv
+        notes: "AI infra / training / inference / serving relevant papers only. Cross-list venue."
+    overflow_venues:
+      enabled: false
+      entries:
+        - key: neurips
+          display_name: NeurIPS
+          aliases:
+            - conference-on-neural-information-processing-systems
+          primary_track: ai_systems
+          related_tracks: []
+          years_pattern: annual
+          default_sources:
+            - openreview
+            - semantic_scholar
+            - arxiv
+          notes: "Overflow pool. Use only for systems-oriented AI infrastructure papers."
+        - key: icml
+          display_name: ICML
+          aliases:
+            - international-conference-on-machine-learning
+          primary_track: ai_systems
+          related_tracks: []
+          years_pattern: annual
+          default_sources:
+            - openreview
+            - semantic_scholar
+            - arxiv
+          notes: "Overflow pool. Use only for systems-oriented AI infrastructure papers."
+        - key: iclr
+          display_name: ICLR
+          aliases:
+            - international-conference-on-learning-representations
+          primary_track: ai_systems
+          related_tracks: []
+          years_pattern: annual
+          default_sources:
+            - openreview
+            - semantic_scholar
+            - arxiv
+          notes: "Overflow pool. Use only for systems-oriented AI infrastructure papers."
