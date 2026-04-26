@@ -6,6 +6,7 @@ Chinese guide: [HOW_TO_USE_DAILYREAD_ZH.md](./HOW_TO_USE_DAILYREAD_ZH.md)
 
 This workspace is a workspace-first research workflow for:
 
+- topic workflow mapping
 - paper discovery
 - venue survey
 - deep paper analysis
@@ -43,6 +44,7 @@ scripts/       validation and indexing helpers
 
 Type `/` in chat and select one of these skills:
 
+- `topic-workflow-map`
 - `daily-discovery`
 - `venue-survey`
 - `paper-analyze`
@@ -53,9 +55,26 @@ Type `/` in chat and select one of these skills:
 
 ### Suggested Usage Order
 
-#### 1. Discover recent papers
+#### 1. Map a topic workflow
+
+Use `topic-workflow-map` when a topic is still fuzzy and you first need a clear picture of its end-to-end workflow, lifecycle, key layers, and where systems versus architecture work differ.
+
+Examples:
+
+- `topic-workflow-map ai systems agentic serving`
+- `topic-workflow-map architecture LLM training workflow`
+
+Expected result:
+
+- a workflow report under `reports/`
+- a layered map of the topic and its bottlenecks
+- a concrete handoff to `daily-discovery`, `venue-survey`, or `paper-analyze`
+
+#### 2. Discover recent papers
 
 Use `daily-discovery` when you want a short survey-style scan of recent papers for a track or topic.
+
+If you already ran `topic-workflow-map`, use the report's chosen layer, lifecycle stage, and focus question to keep discovery narrow.
 
 Examples:
 
@@ -68,9 +87,11 @@ Expected result:
 - a backlog section for follow-up reading
 - optional follow-up leads in `inbox/`
 
-#### 2. Survey a venue
+#### 3. Survey a venue
 
 Use `venue-survey` when you want a focused review of a venue or conference family.
+
+If you already have a workflow report, use it to decide which venues and years matter most for the targeted stage.
 
 Examples:
 
@@ -83,9 +104,11 @@ Expected result:
 - highlighted papers
 - gap map and follow-up reading suggestions
 
-#### 3. Deeply analyze a paper
+#### 4. Deeply analyze a paper
 
 Use `paper-analyze` when you want a durable, structured paper note.
+
+If a workflow report exists, place the paper back into that larger stack while reading.
 
 Examples:
 
@@ -97,9 +120,11 @@ Expected result:
 
 - a deep paper note under `papers/<year>/<venue>/`
 
-#### 4. Turn reading into ideas
+#### 5. Turn reading into ideas
 
 Use `idea-synthesis` when you already have paper notes or survey notes and want concrete hypotheses.
+
+Workflow reports also count as valid source notes when you want ideas tied to a specific stage or intervention point.
 
 Examples:
 
@@ -110,7 +135,7 @@ Expected result:
 
 - one or more idea notes under `ideas/`
 
-#### 5. Write a report
+#### 6. Write a report
 
 Use `report-writer` when you want a weekly, monthly, survey, or progress-style report.
 
@@ -123,7 +148,7 @@ Expected result:
 
 - a report under `reports/`
 
-#### 6. Search local notes
+#### 7. Search local notes
 
 Use `paper-search` when you want to find prior notes by title, topic, venue, key, or tag.
 
@@ -132,7 +157,7 @@ Examples:
 - `paper-search topic memory disaggregation`
 - `paper-search OSDI inference serving`
 
-#### 7. Collect figures or assets
+#### 8. Collect figures or assets
 
 Use `extract-paper-images` when a paper has figures, PDFs, project pages, or artifacts worth storing.
 
@@ -182,7 +207,7 @@ Important fields:
 
 ### Reports
 
-Use `templates/hybrid_report.md` or `templates/survey_report.md`.
+Use `templates/workflow_report.md`, `templates/hybrid_report.md`, or `templates/survey_report.md`.
 
 Important fields:
 

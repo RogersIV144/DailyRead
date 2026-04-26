@@ -15,3 +15,27 @@ arxiv_categories:
   - cs.AI
   - cs.CV
 preferred_venues: []
+source_overrides:
+  chaspark:
+    preferred_sections:
+      - academic_hotspots
+      - paper_sharing
+      - innovation_insights
+      - video
+    preferred_content_types:
+      - paper_roundup
+      - expert_blog
+      - topic_brief
+      - event_recap
+    include_keywords:
+      - embodied ai
+      - robot system
+      - world model
+      - sim2real
+      - perception-control
+      - robot learning system
+    exclude_keywords:
+      - material science
+      - pure mathematics
+      - patent
+      - contest

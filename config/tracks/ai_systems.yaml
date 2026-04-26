@@ -27,6 +27,32 @@ preferred_venues:
   - eurosys
   - asplos
   - nsdi
+source_overrides:
+  chaspark:
+    preferred_sections:
+      - academic_hotspots
+      - paper_sharing
+      - innovation_insights
+      - weekly_digest
+      - video
+    preferred_content_types:
+      - paper_roundup
+      - expert_blog
+      - topic_brief
+      - event_recap
+    include_keywords:
+      - ai infrastructure
+      - llm serving
+      - distributed training
+      - inference system
+      - agent runtime
+      - ai scientist
+      - model system
+    exclude_keywords:
+      - benchmark-only
+      - material science
+      - pure mathematics
+      - patent
 overflow_venues:
   enabled: false
   entries:

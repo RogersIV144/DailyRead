@@ -19,3 +19,26 @@ preferred_venues:
   - ndss
   - ieee-sp
   - ccs
+source_overrides:
+  chaspark:
+    preferred_sections:
+      - academic_hotspots
+      - paper_sharing
+      - innovation_insights
+    preferred_content_types:
+      - paper_roundup
+      - expert_blog
+      - topic_brief
+    include_keywords:
+      - systems security
+      - trusted execution
+      - confidential computing
+      - sandbox
+      - exploit mitigation
+      - vulnerability analysis
+      - isolation
+    exclude_keywords:
+      - material science
+      - pure mathematics
+      - patent
+      - contest

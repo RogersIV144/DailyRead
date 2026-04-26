@@ -22,3 +22,27 @@ preferred_venues:
   - eurosys
   - usenix-atc
   - hotos
+source_overrides:
+  chaspark:
+    preferred_sections:
+      - academic_hotspots
+      - paper_sharing
+      - weekly_digest
+      - innovation_insights
+    preferred_content_types:
+      - paper_roundup
+      - expert_blog
+      - topic_brief
+    include_keywords:
+      - operating system
+      - file system
+      - storage system
+      - runtime system
+      - serverless
+      - resource management
+      - datacenter system
+    exclude_keywords:
+      - material science
+      - pure mathematics
+      - patent
+      - contest

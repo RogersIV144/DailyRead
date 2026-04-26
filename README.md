@@ -60,6 +60,12 @@ scripts/       校验与索引脚本
 5. 用 `report-writer` 写周报、阶段总结或 topic review。
 6. 用 `paper-search` 和 `index/` 回收已有积累，避免重复劳动。
 
+## Discovery Source Policy
+
+DailyRead 保持 workflow-centric 的技能边界，而不是按单一网站拆分 skills。
+
+论文发现和 venue inventory 的 canonical 清单应优先来自 `config/dailyread.yaml` 中配置的默认来源。像 Chaspark 这类编辑型研究站点更适合作为 `daily-discovery` 和 `paper-analyze` 的二级输入：用于发现高价值博客、论文汇总和中文上下文，但在落 paper note 前仍应回到原始 paper URL、venue 页面或 DOI 元数据。
+
 ## Templates and Metadata
 
 仓库内置以下模板：

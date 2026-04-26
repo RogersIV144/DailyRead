@@ -6,6 +6,7 @@ English guide: [HOW_TO_USE_DAILYREAD.md](./HOW_TO_USE_DAILYREAD.md)
 
 这个工作区是一套 workspace-first 的科研工作流，覆盖：
 
+- topic workflow mapping
 - paper discovery
 - venue survey
 - deep paper analysis
@@ -43,6 +44,7 @@ scripts/       校验与索引脚本
 
 在聊天里输入 `/`，你应该能看到这些 skills：
 
+- `topic-workflow-map`
 - `daily-discovery`
 - `venue-survey`
 - `paper-analyze`
@@ -53,9 +55,26 @@ scripts/       校验与索引脚本
 
 ## 推荐工作流顺序
 
-### 1. 先做近期论文发现
+### 1. 先做 topic workflow mapping
+
+当你对一个 topic 还没有整体认知，或者你还说不清它在完整应用链路里扮演什么角色时，用 `topic-workflow-map`。
+
+示例：
+
+- `topic-workflow-map ai systems agentic serving`
+- `topic-workflow-map architecture LLM training workflow`
+
+预期输出：
+
+- 一份 workflow report，写入 `reports/`
+- 一个相对稳定的 lifecycle / layered stack 梳理
+- 一个明确的下游 handoff，告诉你下一步更适合接 `daily-discovery`、`venue-survey` 还是 `paper-analyze`
+
+### 2. 先做近期论文发现
 
 当你想快速扫描一个方向最近值得读的论文时，用 `daily-discovery`。
+
+如果你已经跑过 `topic-workflow-map`，这里应尽量沿用它给出的 layer terminology、focus question 和目标子环节。
 
 示例：
 
@@ -68,9 +87,11 @@ scripts/       校验与索引脚本
 - 一个 follow-up backlog，告诉你哪些 paper 值得继续深读
 - 必要时补充到 `inbox/` 的候选线索
 
-### 2. 再做指定会议调研
+### 3. 再做指定会议调研
 
 当你想围绕某个 venue 或 conference family 做定向调研时，用 `venue-survey`。
+
+如果你已经有 workflow report，就用它来决定该优先看哪些 venue、哪些年份、哪一段技术脉络。
 
 示例：
 
@@ -83,9 +104,11 @@ scripts/       校验与索引脚本
 - 重点 paper 列表
 - gap map 与后续阅读建议
 
-### 3. 深读单篇论文
+### 4. 深读单篇论文
 
 当你已经挑出一篇值得认真看的 paper 时，用 `paper-analyze`。
+
+如果同一 topic 已经有 workflow report，深读时要顺手回答：这篇 paper 处在哪一层，解决的是哪一段 lifecycle 的问题。
 
 示例：
 
@@ -97,9 +120,11 @@ scripts/       校验与索引脚本
 
 - 一篇结构化的 paper note，写入 `papers/<year>/<venue>/`
 
-### 4. 从阅读结果生成 ideas
+### 5. 从阅读结果生成 ideas
 
 当你已经有若干 paper notes 或 survey notes，希望把阅读转成 research ideas 时，用 `idea-synthesis`。
+
+workflow report 也可以作为 source note 输入，尤其适合把 idea 锚定到某个明确的 stage / layer / intervention point 上。
 
 示例：
 
@@ -110,7 +135,7 @@ scripts/       校验与索引脚本
 
 - 一个或多个 idea notes，写入 `ideas/`
 
-### 5. 把阶段结果写成报告
+### 6. 把阶段结果写成报告
 
 当你想把 papers、ideas、surveys 收束成阶段总结时，用 `report-writer`。
 
@@ -123,7 +148,7 @@ scripts/       校验与索引脚本
 
 - 一篇 report，写入 `reports/`
 
-### 6. 搜索已有笔记
+### 7. 搜索已有笔记
 
 当你想根据 title、topic、venue、paper key 或 tag 找回已有内容时，用 `paper-search`。
 
@@ -132,7 +157,7 @@ scripts/       校验与索引脚本
 - `paper-search topic memory disaggregation`
 - `paper-search OSDI inference serving`
 
-### 7. 收集 figures 或附件
+### 8. 收集 figures 或附件
 
 当某篇 paper 有值得保存的 figures、PDF、project page 或 artifact 时，用 `extract-paper-images`。
 
@@ -182,7 +207,7 @@ workspace 里的 prompts 放在 `.github/prompts/`。
 
 ### Reports
 
-使用 `templates/hybrid_report.md` 或 `templates/survey_report.md`。
+使用 `templates/workflow_report.md`、`templates/hybrid_report.md` 或 `templates/survey_report.md`。
 
 重点字段：
 
@@ -264,12 +289,13 @@ workspace 里的 prompts 放在 `.github/prompts/`。
 
 ## 一个实际可执行的日常流程
 
-1. 先对 `ai_systems` 或 `systems` 跑一次 `daily-discovery`
-2. 从生成的 report 里挑 2 到 3 篇最值得读的 paper
-3. 对其中最重要的一篇运行 `paper-analyze`
-4. 基于新 paper note 和 discovery report 运行 `idea-synthesis`
-5. 用 `report-writer` 写周报、月报或某个方向的小结
-6. 如果你想更新目录视图，再运行一次 `build_indexes.py`
+1. 如果是陌生 topic，先跑一次 `topic-workflow-map`
+2. 再对 workflow report 指向的子环节运行 `daily-discovery` 或 `venue-survey`
+3. 从生成的 report 里挑 2 到 3 篇最值得读的 paper
+4. 对其中最重要的一篇运行 `paper-analyze`
+5. 基于新 paper note、workflow report 和 survey/discovery report 运行 `idea-synthesis`
+6. 用 `report-writer` 写周报、月报或某个方向的小结
+7. 如果你想更新目录视图，再运行一次 `build_indexes.py`
 
 ## 如果 slash commands 没有立刻显示出来
 

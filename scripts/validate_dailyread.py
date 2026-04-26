@@ -27,6 +27,7 @@ REQUIRED_ROOT_FILES = [
     "templates/idea_note.md",
     "templates/hybrid_report.md",
     "templates/survey_report.md",
+    "templates/workflow_report.md",
 ]
 
 REQUIRED_CONFIG_KEYS = [
@@ -34,6 +35,7 @@ REQUIRED_CONFIG_KEYS = [
     "storage",
     "taxonomy",
     "search",
+    "sources",
     "scoring",
     "tracks",
     "tasks",
@@ -83,6 +85,18 @@ REQUIRED_TEMPLATE_FIELDS = {
         "action_items",
     ],
     "survey_report.md": [
+        "title",
+        "type",
+        "status",
+        "report_kind",
+        "trigger",
+        "topics",
+        "tags",
+        "input_notes",
+        "takeaways",
+        "action_items",
+    ],
+    "workflow_report.md": [
         "title",
         "type",
         "status",

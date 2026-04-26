@@ -18,6 +18,7 @@ Build a workspace-first research workflow for a new PhD student in computer syst
 
 The workflow should cover:
 
+- topic workflow mapping before deep reading
 - paper discovery
 - venue-specific survey
 - deep paper analysis
@@ -34,6 +35,8 @@ The workflow should cover:
 - Metadata uses YAML frontmatter.
 - Internal enum values use `snake_case`.
 - Customizations are workspace-level under `.github/`.
+- External discovery sources are modeled as workflow inputs, not source-specific skills.
+- Topic workflow mapping is a first-class frontdoor before discovery, venue survey, and deep paper analysis.
 - No custom agent in phase 1.
 
 ## Target Workspace Layout
@@ -68,6 +71,7 @@ The root config will use these top-level groups:
 - `storage`
 - `taxonomy`
 - `search`
+- `sources`
 - `scoring`
 - `tracks`
 - `tasks`
@@ -240,6 +244,7 @@ Expected prompts include:
 
 Expected skills in phase 1:
 
+- `topic-workflow-map`
 - `daily-discovery`
 - `venue-survey`
 - `paper-analyze`
@@ -274,6 +279,13 @@ Expected skills in phase 1:
 - write prompts
 - write phase-1 skills
 
+### Phase C2 - Workflow Frontdoor Extension
+
+- add a topic workflow mapping skill before discovery and survey
+- add a workflow report template
+- connect downstream skills to reuse workflow framing
+- refresh usage guides for the new recommended entry point
+
 ### Phase D - Support Scripts
 
 - add helper scripts for validation, indexing, and future asset download
@@ -293,6 +305,7 @@ Expected skills in phase 1:
 - [x] Phase A - Scaffold
 - [x] Phase B - Core Data Model
 - [x] Phase C - Copilot Customizations
+- [x] Phase C2 - Workflow Frontdoor Extension
 - [x] Phase D - Support Scripts
 - [x] Phase E - Validation
 - [x] Phase F - Documentation
@@ -305,6 +318,7 @@ Expected skills in phase 1:
 - Workspace skeleton created.
 - Workspace-local `.conda` environment configured.
 - Root config, track presets, note templates, prompts, instructions, and phase-1 skills created.
+- Topic workflow mapping extension added with a dedicated workflow report template and upstream-to-downstream skill handoff.
 - Validation script passed in the local `.conda` environment.
 - Index generation script created and executed successfully.
 - Root usage guide written.

@@ -41,6 +41,34 @@ search:
   semantic_search_enabled: false
   deduplicate_by_paper_key: true
 
+sources:
+  chaspark:
+    display_name: Chaspark
+    base_url: https://www.chaspark.com/#/home
+    source_kind: editorial_research_hub
+    enabled: true
+    enabled_tasks:
+      - daily_discovery
+      - paper_analyze
+    supported_content_types:
+      - paper_roundup
+      - expert_blog
+      - topic_brief
+      - event_recap
+    supported_sections:
+      - academic_hotspots
+      - paper_sharing
+      - innovation_insights
+      - weekly_digest
+      - topic
+      - video
+    usage_mode: secondary_context
+    notes:
+      - Use for high-signal discovery leads and Chinese context synthesis.
+      - Track-specific Chaspark filters live in config/tracks/*.yaml under source_overrides.chaspark.
+      - Resolve canonical paper metadata from the original paper URL before creating paper notes.
+      - Do not use as the only source for exhaustive venue inventory.
+
 scoring:
   daily_discovery:
     relevance: 0.35

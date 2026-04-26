@@ -23,3 +23,27 @@ preferred_venues:
   - fast
   - eurosys
   - osdi
+source_overrides:
+  chaspark:
+    preferred_sections:
+      - academic_hotspots
+      - paper_sharing
+      - innovation_insights
+      - weekly_digest
+    preferred_content_types:
+      - paper_roundup
+      - expert_blog
+      - topic_brief
+    include_keywords:
+      - distributed system
+      - cloud infrastructure
+      - cluster management
+      - service mesh
+      - consensus
+      - rpc
+      - datacenter reliability
+    exclude_keywords:
+      - material science
+      - pure mathematics
+      - patent
+      - contest

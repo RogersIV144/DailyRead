@@ -4,3 +4,28 @@ __pycache__/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
+
+# Workspace-local generated outputs
+attachments/*
+!attachments/.gitkeep
+papers/*
+!papers/.gitkeep
+reports/*.md
+!reports/.gitkeep
+index/*.md
+index/*.json
+!index/.gitkeep
+
+# Local workflow logs
+RESEARCH_DIRECTIONS.local.md
+
+# Editor and OS noise
+.vscode/
+*.code-workspace
+Thumbs.db
+Desktop.ini
+.DS_Store
+*.tmp
+*.bak
+*.swp
+

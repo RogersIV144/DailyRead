@@ -20,3 +20,28 @@ preferred_venues:
   - imc
   - conext
   - infocom
+source_overrides:
+  chaspark:
+    preferred_sections:
+      - academic_hotspots
+      - paper_sharing
+      - innovation_insights
+      - video
+    preferred_content_types:
+      - paper_roundup
+      - expert_blog
+      - topic_brief
+      - event_recap
+    include_keywords:
+      - network system
+      - transport protocol
+      - datacenter network
+      - wireless system
+      - 6g
+      - congestion control
+      - traffic engineering
+    exclude_keywords:
+      - material science
+      - pure mathematics
+      - patent
+      - contest
