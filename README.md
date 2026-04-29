@@ -51,6 +51,12 @@ scripts/       校验与索引脚本
 - `paper-search`
 - `extract-paper-images`
 
+## Skill Attribution
+
+仓库内 `.github/skills/` 下的技能实现参考了 [juliye2025/evil-read-arxiv](https://github.com/juliye2025/evil-read-arxiv) 的工作流设计与部分组织思路，并在当前 DailyRead 工作区内做了面向 systems research workflow 的本地化改写。
+
+原始参考仓库使用 MIT License。出于引用与开源协作考虑，本仓库在 README 中保留这一来源说明；如果后续继续引入或改写其中的具体实现片段，也应同步保留相应的许可证与来源信息。
+
 ## Recommended Workflow
 
 1. 用 `daily-discovery` 做近期论文发现。
